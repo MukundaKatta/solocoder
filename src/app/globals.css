@@ -1,0 +1,132 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@300;400;500;600;700&display=swap');
+
+@layer base {
+  * {
+    @apply border-solo-border;
+  }
+  body {
+    @apply bg-solo-bg text-solo-text font-sans;
+  }
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    @apply bg-solo-bg;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-solo-border rounded-full;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-solo-text-muted;
+  }
+}
+
+@layer components {
+  .glass-panel {
+    @apply bg-solo-surface/80 backdrop-blur-xl border border-solo-border rounded-xl;
+  }
+  .glass-panel-sm {
+    @apply bg-solo-surface/80 backdrop-blur-xl border border-solo-border rounded-lg;
+  }
+  .btn-primary {
+    @apply px-4 py-2 bg-solo-accent hover:bg-solo-accent-light text-white font-medium rounded-lg
+    transition-all duration-200 shadow-lg shadow-solo-accent/20 hover:shadow-solo-accent/40
+    disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:shadow-solo-accent/20;
+  }
+  .btn-secondary {
+    @apply px-4 py-2 bg-solo-surface hover:bg-solo-border text-solo-text font-medium rounded-lg
+    border border-solo-border transition-all duration-200
+    disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+  .btn-ghost {
+    @apply px-3 py-1.5 hover:bg-solo-border/50 text-solo-text-dim hover:text-solo-text
+    rounded-lg transition-all duration-200;
+  }
+  .btn-danger {
+    @apply px-4 py-2 bg-red-600/20 hover:bg-red-600/30 text-red-400 font-medium rounded-lg
+    border border-red-600/30 transition-all duration-200;
+  }
+  .input-field {
+    @apply w-full px-4 py-3 bg-solo-surface border border-solo-border rounded-lg
+    text-solo-text placeholder-solo-text-muted
+    focus:outline-none focus:ring-2 focus:ring-solo-accent/50 focus:border-solo-accent
+    transition-all duration-200;
+  }
+  .textarea-field {
+    @apply w-full px-4 py-3 bg-solo-surface border border-solo-border rounded-lg
+    text-solo-text placeholder-solo-text-muted resize-none
+    focus:outline-none focus:ring-2 focus:ring-solo-accent/50 focus:border-solo-accent
+    transition-all duration-200 font-mono text-sm leading-relaxed;
+  }
+  .phase-badge {
+    @apply inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium uppercase tracking-wider;
+  }
+  .tab-active {
+    @apply text-solo-accent border-b-2 border-solo-accent;
+  }
+  .tab-inactive {
+    @apply text-solo-text-dim hover:text-solo-text;
+  }
+  .file-tree-item {
+    @apply flex items-center gap-2 px-3 py-1.5 text-sm font-mono cursor-pointer
+    hover:bg-solo-border/30 rounded transition-colors;
+  }
+  .file-tree-item-active {
+    @apply bg-solo-accent/10 text-solo-accent;
+  }
+  .terminal-line {
+    @apply font-mono text-sm leading-relaxed;
+  }
+}
+
+/* xterm.js overrides */
+.xterm {
+  padding: 8px;
+}
+.xterm-viewport {
+  overflow-y: auto !important;
+}
+.xterm-viewport::-webkit-scrollbar {
+  width: 6px;
+}
+.xterm-viewport::-webkit-scrollbar-thumb {
+  background: #1e1e2e;
+  border-radius: 3px;
+}
+
+/* Monaco editor overrides */
+.monaco-editor {
+  border-radius: 8px;
+}
+.monaco-editor .margin {
+  background: #12121a !important;
+}
+
+/* Animations */
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.shimmer {
+  background: linear-gradient(90deg, transparent, rgba(99, 102, 241, 0.1), transparent);
+  background-size: 200% 100%;
+  animation: shimmer 2s infinite;
+}
+
+.typing-indicator::after {
+  content: '...';
+  animation: typing 1.5s steps(3) infinite;
+}
+
+@keyframes typing {
+  0% { content: ''; }
+  33% { content: '.'; }
+  66% { content: '..'; }
+  100% { content: '...'; }
+}
