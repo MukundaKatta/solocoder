@@ -78,6 +78,3 @@ solocoder/
 └── package.json
 ```
 
-## License
-
-MIT
