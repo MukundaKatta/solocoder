@@ -1,5 +1,7 @@
 # solocoder — Autonomous AI software engineer with browser-based IDE
 
+**Live:** <https://mukundakatta.github.io/solocoder/>
+
 Autonomous AI software engineer with browser-based IDE. solocoder gives you a focused, inspectable implementation of that idea.
 
 ## Why solocoder
